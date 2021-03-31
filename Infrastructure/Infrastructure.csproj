@@ -1,12 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <Compile Remove="Migrations\20210329125805_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210329125805_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210330051017_AddingValidation.cs" />
+    <Compile Remove="Migrations\20210330051017_AddingValidation.Designer.cs" />
+    <Compile Remove="Migrations\20210330051146_AddingValidation.cs" />
+    <Compile Remove="Migrations\20210330051146_AddingValidation.Designer.cs" />
+    <Compile Remove="Migrations\20210330051417_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210330051417_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210330164810_Edited.cs" />
+    <Compile Remove="Migrations\20210330164810_Edited.Designer.cs" />
+    <Compile Remove="Migrations\20210330164959_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210330164959_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210330165112_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210330165112_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
