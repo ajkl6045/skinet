@@ -5,6 +5,7 @@ import { IPaginaion } from '../shared/models/pagination';
 import { IType } from '../shared/models/productType';
 import {map} from 'rxjs/operators';
 import { ShopParams } from '../shared/models/shopParams';
+import { IProduct } from '../shared/models/product';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ baseUrl = 'https://localhost:5001/api/';
   params = params.append('typeId', shopParams.typeId.toString());
 
 }
-if (shopParams.search) {
+    if (shopParams.search) {
   params = params.append('search', shopParams.search);
 }
 
@@ -37,6 +38,10 @@ if (shopParams.search) {
       })
     );
   }
+  getProduct(id: number) {
+ return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
+  }
+
   getBrands() {
     return this.http.get<IBrand[]>(this.baseUrl + 'products/brands');
   }
