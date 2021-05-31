@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Text.Json;
 using Core.Entities;
+using Core.Entities.OrderAggregate;
 
 namespace Infrastructure.Data
 {
@@ -61,6 +62,23 @@ namespace Infrastructure.Data
                         //    ProductTypeId=item.ProductTypeId
                         //};
                         context.Products.Add(item);
+                    }
+                    await context.SaveChangesAsync();
+                }
+                if (!context.DeliveryMethods.Any())
+                {
+                    var typesData = File.ReadAllText("../Infrastructure/Data/SeedData/delivery.json");
+                    var types = JsonSerializer.Deserialize<List<DeliveryMethod>>(typesData);
+                    foreach (var item in types)
+                    {
+                        DeliveryMethod model = new DeliveryMethod
+                        {
+                            ShortName=item.ShortName,
+                            DeliveryTime=item.DeliveryTime,
+                            Description=item.Description,
+                            Price = item.Price
+                        };
+                        context.DeliveryMethods.Add(model);
                     }
                     await context.SaveChangesAsync();
                 }

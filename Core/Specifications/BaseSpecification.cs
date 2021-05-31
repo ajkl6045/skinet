@@ -22,9 +22,9 @@ namespace Core.Specifications
         public List<Expression<Func<T, object>>> Includes { get; } = 
             new List<Expression<Func<T, object>>>();
 
-        public Expression<Func<T, object>> Ordery { get; private set; }
+        public Expression<Func<T, object>> OrderBy { get; private set; }
 
-        public Expression<Func<T, object>> OrderyDescending { get; private set; }
+        public Expression<Func<T, object>> OrderByDescending { get; private set; }
 
         public int Take { get; private set; }
 
@@ -39,11 +39,11 @@ namespace Core.Specifications
         }
         protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
         {
-            Ordery = orderByExpression;
+            OrderBy = orderByExpression;
         }
         protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescExpression)
         {
-            OrderyDescending = orderByDescExpression;
+            OrderByDescending = orderByDescExpression;
         }
         protected void ApplyPaging(int skip, int take)
         {

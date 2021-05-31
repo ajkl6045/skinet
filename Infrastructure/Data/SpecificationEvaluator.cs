@@ -17,13 +17,13 @@ namespace Infrastructure.Data
             {
                 query = query.Where(spec.Criteria);
             }
-            if (spec.Ordery != null)
+            if (spec.OrderBy != null)
             {
-                query = query.OrderBy(spec.Ordery);
+                query = query.OrderBy(spec.OrderBy);
             }
-            if (spec.OrderyDescending != null)
+            if (spec.OrderByDescending != null)
             {
-                query = query.OrderByDescending(spec.OrderyDescending);
+                query = query.OrderByDescending(spec.OrderByDescending);
             }
             if (spec.IsPagingEnabled)
             {
